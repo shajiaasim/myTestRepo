@@ -1,3 +1,32 @@
+//SEI Tech Lead Candidate Problem Set
+//
+//Submitted by: Mohamed Aasim Shaji
+//
+//Consulting Firm: tekSystems
+//
+//Contact Info: shajiaasim@gmail.com
+//
+//1. Given the following class, write 3 methods that can be used to return an array that has no 
+//
+//duplicates.
+// Three methods are defined in this class each of which that return an array without duplicates.
+//2. You should define a method signature that you feel is appropriate to the problem.
+//
+//3. We would prefer to see three implementations (one that should take into consideration #4 
+//
+//below) and an explanation of what use-cases are suitable to each implementation 
+//  To retain the original order I have used a LinkedHashSet which preserves the original order,
+// explanations are mentioned in method comments
+//4. What if we need to retain the original order?
+// Use LinkedHashSet
+//5. What are the positives and negatives of your solution?
+//  Mentioned in code comments
+//6. Your solution should be testable and “production ready.”
+// Used JUnit tests to ensure the results are as expected
+//7. Your solution should be posted to a public github repo that SEI can clone.
+// 
+//a. Can you implement it another way so as to avoid the negatives?
+
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -38,7 +67,7 @@ public class DeDup {
 
 	/**
 	 * The following method removes duplicates using a LinkedHashSet which
-	 * preserves original order No negatives
+	 * Positives: preserves original order, No negatives
 	 */
 	static int[] removeDupesUsingSet(int[] duplicateArray) {
 		Set<Integer> hashset = new LinkedHashSet<Integer>();
@@ -88,8 +117,8 @@ public class DeDup {
 	}
 
 	/**
-	 * The following method removes duplicates without utilizing Collections No
-	 * negatives
+	 * The following method removes duplicates without utilizing Collections
+	 * Negatives : For a large array this method will be time consuming.
 	 */
 	static int[] removeDupes(int[] duplicateArray) {
 		Arrays.sort(duplicateArray);
@@ -113,6 +142,9 @@ public class DeDup {
 
 	}
 
+	/**
+	 * Counts the number of unique elements in an array
+	 */
 	public static int countUnique(int[] duplicateArray) {
 		int countDupe = 0;
 		for (int i = 0; i < duplicateArray.length - 1; i++) {
@@ -125,6 +157,9 @@ public class DeDup {
 
 	}
 
+	/**
+	 * Converts a Set to an Array
+	 */
 	static public int[] toInt(Set<Integer> set) {
 		int[] a = new int[set.size()];
 		int i = 0;
